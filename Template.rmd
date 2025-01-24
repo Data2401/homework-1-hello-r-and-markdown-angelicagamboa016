@@ -20,8 +20,6 @@ Based on the help file, there are 1846 rows and three columns.The variables incl
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
 First let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
@@ -46,8 +44,6 @@ dino_data %>%
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
-
 ```{r plot-star}
 library(ggplot2)
 library(dplyr)
@@ -60,7 +56,6 @@ ggplot(data=star_data, mapping = aes(x = x, y = y)) +
   geom_point() +
   ggtitle("Plot of y vs x for the star dataset")
 ```
-
 Both the dino and star correlations are close to 0 which indicate weak negative relationships between x and y.
 
 ```{r cor-star}
@@ -70,16 +65,24 @@ star_data %>%
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+```{r plot-circle}
+library(ggplot2)
+library(dplyr)
+library(datasauRus)
 
-```{r}
+circle_data<- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
-
+ggplot(data=circle_data, mapping = aes(x = x, y = y)) +
+  geom_point() +
+  ggtitle("Plot of y vs x for the circle dataset")
 ```
 
-```{r}
+The correlation for the circle has a slightly stronger negative relationship between x and y than the dino dataset.
 
-
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
 
 ### Exercise 5
