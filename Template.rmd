@@ -2,7 +2,11 @@
 title: "Hello R"
 author: "Angelica Gamboa"
 date: "Data 2401"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 8
+    fig_width: 8
+    highlight: textmate
 ---
 
 MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT.
@@ -22,7 +26,7 @@ Based on the help file, there are 1846 rows and three columns.The variables incl
 
 First let's plot the data in the dino dataset:
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.height=4, fig.width=4}
 library(ggplot2)
 library(dplyr)
 library(datasauRus)
@@ -44,7 +48,7 @@ dino_data %>%
 
 ### Exercise 3
 
-```{r plot-star}
+```{r plot-star, fig.height=4, fig.width=4}
 library(ggplot2)
 library(dplyr)
 library(datasauRus)
@@ -56,6 +60,7 @@ ggplot(data=star_data, mapping = aes(x = x, y = y)) +
   geom_point() +
   ggtitle("Plot of y vs x for the star dataset")
 ```
+
 Both the dino and star correlations are close to 0 which indicate weak negative relationships between x and y.
 
 ```{r cor-star}
@@ -65,7 +70,7 @@ star_data %>%
 
 ### Exercise 4
 
-```{r plot-circle}
+```{r plot-circle, fig.height=4, fig.width=4}
 library(ggplot2)
 library(dplyr)
 library(datasauRus)
@@ -88,3 +93,20 @@ circle_data %>%
 ### Exercise 5
 
 (Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+
+```{r plot all datasets, fig.height=10, fig.width=10}
+library(ggplot2)
+library(dplyr)
+library(datasauRus)
+
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +  #facet ther dataset variable, in 3 cols
+  theme(legend.position = "none") 
+```
+
+```{r cor-all datasets, fig.height=4, fig.width=4}
+datasaurus_dozen %>%
+group_by(dataset) %>%
+summarize(r = cor(x, y))
+```
