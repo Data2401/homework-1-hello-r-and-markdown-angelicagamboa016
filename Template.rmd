@@ -25,8 +25,13 @@ Based on the help file, there are 1846 rows and three columns.The variables incl
 First let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
+library(ggplot2)
+library(dplyr)
+library(datasauRus)
+
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
+
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
