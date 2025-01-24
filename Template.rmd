@@ -5,7 +5,7 @@ date: "Data 2401"
 output: html_document
 ---
 
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
+MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT.
 
 ### Load packages
 
@@ -14,10 +14,9 @@ library(tidyverse)
 library(datasauRus)
 ```
 
-
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code. **Remove notes like this in the final product that you turn in**)
+Based on the help file, there are 1846 rows and three columns.The variables included in the data frame are dataset,x, and y.
 
 ### Exercise 2
 
@@ -43,15 +42,13 @@ dino_data %>%
 
 (Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
 
-
-
 ```{r plot-star}
 
 
 ```
 
 I'm some text, you should replace me with more meaningful text...
- 
+
 ```{r cor-star}
 
 
